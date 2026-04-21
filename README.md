@@ -340,8 +340,11 @@ queue.offer(page);
 After completing the lab, answer these questions:
 
 1. **Belady's Anomaly**: In Test Case 2, why does adding a 4th frame cause MORE page faults than having only 3 frames? This seems counterintuitive.
+``FIFO does not consider future use or recent use, it is only arrival time. Adding more frames changes the order in which pages get evicted, and that new order can actually be worse.``
 
 2. **Data Structures**: Why do we need both a Queue AND a Set? What would happen if we only used a Queue?
+Using the queue and set are both esstential when implementing a FIFO algorithm. 
+``A queue and set are both essential when using the fifo simulation. The queue is responsible for maintain a structured order, and the set keeps track of what values are in the queue. The set uses o(1) lookup times, allowing for efficient use of fifo. Removing set would make the program ineffi
 
 3. **Performance**: If memory access takes 200 nanoseconds and a page fault takes 8 milliseconds, calculate the effective access time for Test Case 1 with 3 frames. (Use the formula from the lesson)
 
