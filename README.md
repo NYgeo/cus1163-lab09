@@ -344,13 +344,16 @@ After completing the lab, answer these questions:
 
 2. **Data Structures**: Why do we need both a Queue AND a Set? What would happen if we only used a Queue?
 Using the queue and set are both esstential when implementing a FIFO algorithm. 
-``A queue and set are both essential when using the fifo simulation. The queue is responsible for maintain a structured order, and the set keeps track of what values are in the queue. The set uses o(1) lookup times, allowing for efficient use of fifo. Removing set would make the program ineffi
+``A queue and set are both essential when using the fifo simulation. The queue is responsible for maintaining a structured order, and the set keeps track of what values are in the queue. The set uses o(1) lookup times, allowing for efficient use of fifo. Removing Set would make the program inefficient.``
 
 3. **Performance**: If memory access takes 200 nanoseconds and a page fault takes 8 milliseconds, calculate the effective access time for Test Case 1 with 3 frames. (Use the formula from the lesson)
+``Even though memory access is only 200 ns, the high page fault rate (75%) makes the effective access time jump to ~6 milliseconds, which is extremely slow. This shows how expensive page faults are compared to normal memory access.``
 
 4. **Pattern Analysis**: Which test case had the worst performance with 3 frames? Why did that particular access pattern cause so many page faults?
+``The Looping Pattern performed the worst with 3 frames because the reference string cycles through four pages while only three frames are available. FIFO continuously evicts pages that are still needed soon after, causing constant page replacements and resulting in a 100% page fault rate.``
 
 5. **Real World**: Based on your observations, why do you think modern operating systems don't use pure FIFO for page replacement?
+``Real world OS don't use pure FIFO for page replacement due to the lack of efficiency in reusing pages. In other words, many pages are removed and requeued wasting efficiency. ``
 
 ## What You're Learning
 
